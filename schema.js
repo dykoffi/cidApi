@@ -15,7 +15,7 @@ module.exports = init({
         rels: [
             { type: "belongsTo", model: "Filiere", options: { onDelete: "SET NULL" } },
             { type: "belongsTo", model: "Niveau", options: { onDelete: "SET NULL" } },
-            { type: "belongsToMany", model: "Projet" },
+            { type: "belongsToMany", model: "Projet", options : {through : "Projet_Membre"} },
             { type: "hasMany", model: "Projet" },
         ]
     },
@@ -30,9 +30,10 @@ module.exports = init({
             dateFin: { type: DataTypes.DATE },
         },
         rels: [
-            { type: "belongsTo", model: "Personne", options: { as: 'chef' } },
             { type: "belongsTo", model: "Categorie", options: { onDelete: "SET NULL" } },
             { type: "hasMany", model: "Ressource" },
+            { type: "belongsTo", model: "Personne", options: { as: 'chef' } },
+            { type: "belongsToMany", model: "Personne", options : {through : "Projet_Membre"} },
         ]
     },
 

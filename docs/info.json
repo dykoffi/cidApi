@@ -13,6 +13,9 @@
     "servers": [
         {
             "url": "http://localhost:3983"
+        },
+        {
+            "url": "http://cid.api.ciql.org"
         }
     ]
 }

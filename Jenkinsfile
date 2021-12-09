@@ -1,20 +1,18 @@
 pipeline{
     agent any
+    environment {
+        SERVER_NAME "planetServer"
+    }
     stages{
         stage("A"){
-            steps{
-                echo "========executing A========"
+            agent {
+                docker {
+                    image 'node:16'
+                }
             }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
+            steps{
+                sh "npm i -g ciql" //installer ciql pour le deploiement
+                sh "ciql code publish $SERVER_NAME" //deployer sur le serveur ciql
             }
         }
     }
@@ -26,7 +24,7 @@ pipeline{
             echo "========pipeline executed successfully ========"
         }
         failure{
-            echo "========pipeline execution failed========"
+            
         }
     }
 }
