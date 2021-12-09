@@ -47,6 +47,12 @@
                                 },
                                 "telephone": {
                                     "type": "string"
+                                },
+                                "niveau": {
+                                    "type": "integer"
+                                },
+                                "filiere": {
+                                    "type": "integer"
                                 }
                             },
                             "required": []

@@ -15,7 +15,7 @@
             "url": "http://localhost:3983"
         },
         {
-            "url": "http://cid.api.ciql.org"
+            "url": "https://cid.api.ciql.org"
         }
     ]
 }
