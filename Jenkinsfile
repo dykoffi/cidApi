@@ -5,7 +5,7 @@ pipeline{
         }
     }
     environment {
-        SERVER_NAME "planetServer"
+        SERVER_NAME = "planetServer"
     }
     stages{
         stage("Install ciql in gloab mode"){
