@@ -1,0 +1,18 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "cid",
+        "description": "api pour la cid",
+        "version": "1.0.0",
+        "contact": {
+            "name": "edy koffi",
+            "email": "koffiedy@gmail.com",
+            "url": "https://www.linkedin.com/in/edy-koffi-948494192/"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3983"
+        }
+    ]
+}

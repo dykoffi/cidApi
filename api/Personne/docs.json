@@ -1,0 +1,189 @@
+{
+    "/Personne": {
+        "get": {
+            "operationId": "getPersonnes",
+            "tags": [
+                "Personne"
+            ],
+            "description": "\"Returns all Personnes",
+            "responses": {
+                "200": {
+                    "description": "List of Personnes"
+                },
+                "403": {
+                    "description": "Unauthorized"
+                },
+                "500": {
+                    "description": "Internal Error"
+                }
+            }
+        },
+        "post": {
+            "operationId": "addPersonne",
+            "tags": [
+                "Personne"
+            ],
+            "description": "Add new Personne",
+            "requestBody": {
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "matricule": {
+                                    "type": "string"
+                                },
+                                "nom": {
+                                    "type": "string"
+                                },
+                                "prenoms": {
+                                    "type": "string"
+                                },
+                                "photo": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "telephone": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": []
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "table created"
+                },
+                "403": {
+                    "description": "Unauthorized"
+                },
+                "500": {
+                    "description": "Internal Error"
+                }
+            }
+        },
+        "parameters": [
+            {
+                "in": "header",
+                "name": "x-access-token",
+                "schema": {
+                    "type": "string"
+                }
+            }
+        ]
+    },
+    "/Personne/{id}": {
+        "get": {
+            "operationId": "getPersonne",
+            "tags": [
+                "Personne"
+            ],
+            "description": "Returns specific Personne designated by id",
+            "responses": {
+                "200": {
+                    "description": "Personne basic information"
+                },
+                "403": {
+                    "description": "Unauthorized"
+                },
+                "404": {
+                    "description": "Personne not found"
+                },
+                "500": {
+                    "description": "Internal Error"
+                }
+            }
+        },
+        "put": {
+            "operationId": "updatePersonne",
+            "tags": [
+                "Personne"
+            ],
+            "description": "Update Personne",
+            "requestBody": {
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "matricule": {
+                                    "type": "string"
+                                },
+                                "nom": {
+                                    "type": "string"
+                                },
+                                "prenoms": {
+                                    "type": "string"
+                                },
+                                "photo": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "telephone": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": []
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "Personne updated"
+                },
+                "403": {
+                    "description": "Unauthorized"
+                },
+                "404": {
+                    "description": "Personne not found"
+                },
+                "500": {
+                    "description": "Internal Error"
+                }
+            }
+        },
+        "delete": {
+            "operationId": "deletePersonne",
+            "tags": [
+                "Personne"
+            ],
+            "description": "Delete specific Personne designated by id",
+            "responses": {
+                "200": {},
+                "403": {
+                    "description": "Unauthorized"
+                },
+                "404": {
+                    "description": "Personne not found"
+                },
+                "500": {
+                    "description": "Internal Error"
+                }
+            }
+        },
+        "parameters": [
+            {
+                "in": "path",
+                "name": "id",
+                "required": true,
+                "schema": {
+                    "type": "integer"
+                }
+            },
+            {
+                "in": "header",
+                "name": "x-access-token",
+                "schema": {
+                    "type": "string"
+                }
+            }
+        ]
+    }
+}

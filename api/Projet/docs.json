@@ -1,0 +1,195 @@
+{
+    "/Projet": {
+        "get": {
+            "operationId": "getProjets",
+            "tags": [
+                "Projet"
+            ],
+            "description": "\"Returns all Projets",
+            "responses": {
+                "200": {
+                    "description": "List of Projets"
+                },
+                "403": {
+                    "description": "Unauthorized"
+                },
+                "500": {
+                    "description": "Internal Error"
+                }
+            }
+        },
+        "post": {
+            "operationId": "addProjet",
+            "tags": [
+                "Projet"
+            ],
+            "description": "Add new Projet",
+            "requestBody": {
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "nom": {
+                                    "type": "string"
+                                },
+                                "logo": {
+                                    "type": "string"
+                                },
+                                "resume": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "statut": {
+                                    "type": "string"
+                                },
+                                "dateDebut": {
+                                    "type": "string"
+                                },
+                                "dateFin": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": []
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "table created"
+                },
+                "403": {
+                    "description": "Unauthorized"
+                },
+                "500": {
+                    "description": "Internal Error"
+                }
+            }
+        },
+        "parameters": [
+            {
+                "in": "header",
+                "name": "x-access-token",
+                "schema": {
+                    "type": "string"
+                }
+            }
+        ]
+    },
+    "/Projet/{id}": {
+        "get": {
+            "operationId": "getProjet",
+            "tags": [
+                "Projet"
+            ],
+            "description": "Returns specific Projet designated by id",
+            "responses": {
+                "200": {
+                    "description": "Projet basic information"
+                },
+                "403": {
+                    "description": "Unauthorized"
+                },
+                "404": {
+                    "description": "Projet not found"
+                },
+                "500": {
+                    "description": "Internal Error"
+                }
+            }
+        },
+        "put": {
+            "operationId": "updateProjet",
+            "tags": [
+                "Projet"
+            ],
+            "description": "Update Projet",
+            "requestBody": {
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "nom": {
+                                    "type": "string"
+                                },
+                                "logo": {
+                                    "type": "string"
+                                },
+                                "resume": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "statut": {
+                                    "type": "string"
+                                },
+                                "dateDebut": {
+                                    "type": "string"
+                                },
+                                "dateFin": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": []
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "Projet updated"
+                },
+                "403": {
+                    "description": "Unauthorized"
+                },
+                "404": {
+                    "description": "Projet not found"
+                },
+                "500": {
+                    "description": "Internal Error"
+                }
+            }
+        },
+        "delete": {
+            "operationId": "deleteProjet",
+            "tags": [
+                "Projet"
+            ],
+            "description": "Delete specific Projet designated by id",
+            "responses": {
+                "200": {},
+                "403": {
+                    "description": "Unauthorized"
+                },
+                "404": {
+                    "description": "Projet not found"
+                },
+                "500": {
+                    "description": "Internal Error"
+                }
+            }
+        },
+        "parameters": [
+            {
+                "in": "path",
+                "name": "id",
+                "required": true,
+                "schema": {
+                    "type": "integer"
+                }
+            },
+            {
+                "in": "header",
+                "name": "x-access-token",
+                "schema": {
+                    "type": "string"
+                }
+            }
+        ]
+    }
+}
